@@ -3,7 +3,7 @@ const express = require('express')
 const path = require('path');
 const fs = require('fs');
 //Express Server
-const app = express();
+const app = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
@@ -68,6 +68,6 @@ app.delete('/api/notes/:id', (request, response) => {
 });
 
 //Express PORT
-app.listen(3001, () => {
-    console.log(`API server now on port 3001`);
+app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}!`);
 });
